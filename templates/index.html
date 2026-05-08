@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>ATLAS Gene Translator</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+
+</head>
+
+<body>
+
+    <div class="shell">
+
+        <div class="panel">
+
+            <div class="brand-mark">
+                ATLAS Gene Translator
+            </div>
+
+            <h1>
+                Nucleotide → Protein
+            </h1>
+
+            <p class="subtitle">
+                Paste DNA/RNA sequences or upload sequence files to generate amino acid chains.
+            </p>
+
+
+            <!-- Text Input -->
+            <label>
+                Nucleotide Sequence
+            </label>
+
+            <textarea
+                id="geneInput"
+                placeholder="Paste DNA or RNA sequence here..."></textarea>
+
+
+            <!-- File Upload -->
+            <label>
+                Upload Sequence File
+            </label>
+
+            <input type="file"
+                   id="sequenceUpload"
+                   accept=".txt,.fasta,.fa">
+
+
+            <!-- Action -->
+            <button onclick="translateGenome()">
+
+                Translate Sequence
+
+            </button>
+
+
+            <!-- Metrics -->
+            <div class="metrics-grid">
+
+                <div class="metric-card">
+
+                    <div class="metric-label">
+                        Bases
+                    </div>
+
+                    <div id="baseCount">
+                        --
+                    </div>
+
+                </div>
+
+                <div class="metric-card">
+
+                    <div class="metric-label">
+                        Codons
+                    </div>
+
+                    <div id="codonCount">
+                        --
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- Output -->
+            <div class="answer-zone">
+
+                <div class="answer-label">
+                    Amino Acid Chain
+                </div>
+
+                <div id="proteinOutput">
+
+                    --
+
+                </div>
+
+            </div>
+
+
+            <!-- RNA Preview -->
+            <div class="answer-zone">
+
+                <div class="answer-label">
+                    Clean RNA Sequence
+                </div>
+
+                <div id="rnaOutput"
+                     class="sequence-preview">
+
+                    --
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+
+</body>
+</html>
